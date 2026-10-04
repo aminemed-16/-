@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand tokens (RGB triplets). Overridden at runtime from settings: theme.primary / secondary / accent */
+:root {
+  --navy: 27 42 107;      /* #1B2A6B  trust, identity */
+  --royal: 45 91 208;     /* #2D5BD0  links, focus */
+  --magenta: 230 51 142;  /* #E6338E  accent, used sparingly */
+  --blush: 253 239 246;   /* #FDEFF6  soft backgrounds */
+  --ink: 20 27 58;        /* #141B3A  body text */
+  --mist: 245 246 250;    /* #F5F6FA  app background */
+  --line: 227 230 240;    /* #E3E6F0  borders */
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-mist font-sans text-ink antialiased; }
+  :focus-visible { outline: 2px solid rgb(var(--royal)); outline-offset: 2px; border-radius: 6px; }
+  ::selection { background: rgb(var(--magenta) / 0.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
